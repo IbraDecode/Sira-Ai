@@ -3,12 +3,14 @@
 import { useState, useEffect, useRef } from "react";
 import { collection, query, where, orderBy, onSnapshot, addDoc } from "firebase/firestore";
 import { initializeFirebase } from "@/lib/firebase/client";
-import { Workspace, Message } from "@/types";
+import { Workspace, Message, FileAttachment } from "@/types";
 import { Send, Paperclip, Settings as SettingsIcon } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
+import WorkspaceSettings from "./WorkspaceSettings";
+import FileUpload from "./FileUpload";
 
 interface ChatInterfaceProps {
   workspace: Workspace;
@@ -21,6 +23,8 @@ export default function ChatInterface({ workspace, user }: ChatInterfaceProps) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [showFileUpload, setShowFileUpload] = useState(false);
+  const [attachedFiles, setAttachedFiles] = useState<FileAttachment[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -98,8 +102,25 @@ export default function ChatInterface({ workspace, user }: ChatInterfaceProps) {
     }
   };
 
+  const handleFileUploaded = (file: FileAttachment) => {
+    setAttachedFiles([...attachedFiles, file]);
+  };
+
   return (
     <div className="flex-1 flex flex-col bg-gray-900">
+      {showSettings && (
+        <WorkspaceSettings
+          workspace={workspace}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
+      {showFileUpload && (
+        <FileUpload
+          onFileUploaded={handleFileUploaded}
+          onClose={() => setShowFileUpload(false)}
+        />
+      )}
+      
       <div className="bg-gray-800 border-b border-gray-700 px-6 py-4 flex items-center justify-between">
         <div>
           <h2 className="text-lg font-semibold text-white">{workspace.name}</h2>
@@ -191,9 +212,26 @@ export default function ChatInterface({ workspace, user }: ChatInterfaceProps) {
       </div>
 
       <div className="bg-gray-800 border-t border-gray-700 px-6 py-4">
+        {attachedFiles.length > 0 && (
+          <div className="mb-3 flex flex-wrap gap-2">
+            {attachedFiles.map((file) => (
+              <div key={file.id} className="bg-gray-700 rounded-lg px-3 py-2 flex items-center space-x-2">
+                <span className="text-sm text-white">{file.name}</span>
+                <button
+                  onClick={() => setAttachedFiles(attachedFiles.filter((f) => f.id !== file.id))}
+                  className="text-gray-400 hover:text-white"
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+        
         <form onSubmit={handleSubmit} className="flex items-end space-x-3">
           <button
             type="button"
+            onClick={() => setShowFileUpload(true)}
             className="p-3 hover:bg-gray-700 rounded-lg transition"
           >
             <Paperclip className="text-gray-400" size={20} />
