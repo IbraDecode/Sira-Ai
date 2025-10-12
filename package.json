@@ -1,0 +1,43 @@
+{
+  "name": "sira-ai",
+  "version": "1.0.0",
+  "description": "SIRA AI - Multi-Agent Chat System by Ibra Decode",
+  "scripts": {
+    "dev": "next dev --port 5000",
+    "build": "next build",
+    "start": "next start --port 5000",
+    "lint": "next lint"
+  },
+  "keywords": ["ai", "chat", "gemini", "firebase", "nextjs"],
+  "author": "Ibra Decode",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@types/node": "^24.7.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "encoding": "^0.1.13",
+    "firebase": "^12.4.0",
+    "firebase-admin": "^13.5.0",
+    "lucide-react": "^0.545.0",
+    "mammoth": "^1.11.0",
+    "next": "^15.5.4",
+    "pdf-parse": "^2.2.16",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^15.6.6",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/pdf-parse": "^1.1.4"
+  }
+}
