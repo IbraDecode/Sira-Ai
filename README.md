@@ -97,9 +97,8 @@ FIREBASE_ADMIN_PROJECT_ID=your_project_id
 FIREBASE_ADMIN_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
 FIREBASE_ADMIN_CLIENT_EMAIL=firebase-adminsdk@your_project_id.iam.gserviceaccount.com
 
-# Gemini API
+# Gemini API (Server-side only - DO NOT expose to client)
 GEMINI_API_KEY=your_gemini_api_key
-NEXT_PUBLIC_GLOBAL_GEMINI_KEY=your_gemini_api_key
 
 # Encryption (generate random string)
 ENCRYPTION_KEY=your-secure-random-key-here-min-32-chars
@@ -161,10 +160,20 @@ Buka [http://localhost:5000](http://localhost:5000)
 
 ## 🔐 Security
 
-- API keys disimpan terenkripsi menggunakan AES-256-GCM
-- Firebase Security Rules harus dikonfigurasi di console
-- Session management dengan Firebase Auth
-- HTTPS only untuk production
+### Implemented Security Features
+✅ **Firebase ID Token Verification** - Semua API routes memverifikasi token authentication  
+✅ **Session Cookie Management** - Secure httpOnly cookies dengan Firebase Admin SDK  
+✅ **Workspace Ownership Check** - User hanya bisa access workspace milik sendiri  
+✅ **API Key Encryption** - User's custom API keys disimpan dengan AES-256-GCM encryption  
+✅ **Server-side Only Gemini Key** - Gemini API key tidak exposed ke client  
+✅ **SSRF Protection** - File parsing dibatasi ke Firebase Storage URLs saja  
+✅ **Bearer Token Auth** - Semua API calls menggunakan Authorization header  
+
+### Required Security Setup
+- Configure Firebase Security Rules di Firebase Console (lihat contoh di bawah)
+- Set ENCRYPTION_KEY di environment variables (min 32 characters random string)
+- Keep Firebase Admin private key secure (never commit to git)
+- Use HTTPS untuk production deployment
 
 ## 🚢 Deployment
 

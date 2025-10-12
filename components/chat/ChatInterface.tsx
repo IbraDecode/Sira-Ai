@@ -70,9 +70,14 @@ export default function ChatInterface({ workspace, user }: ChatInterfaceProps) {
         timestamp: new Date().toISOString(),
       });
 
+      const idToken = await user.getIdToken();
+
       const response = await fetch("/api/chat/send", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${idToken}`
+        },
         body: JSON.stringify({
           workspaceId: workspace.id,
           message: userMessage,

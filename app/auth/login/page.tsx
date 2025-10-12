@@ -14,13 +14,29 @@ export default function LoginPage() {
 
   const { auth } = initializeFirebase();
 
+  const createSession = async (idToken: string) => {
+    const response = await fetch("/api/auth/session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ idToken }),
+    });
+    
+    if (!response.ok) {
+      throw new Error("Failed to create session. Please check Firebase configuration.");
+    }
+    
+    return response.json();
+  };
+
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const idToken = await userCredential.user.getIdToken();
+      await createSession(idToken);
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message || "Login gagal");
@@ -35,7 +51,9 @@ export default function LoginPage() {
 
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+      await createSession(idToken);
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message || "Login dengan Google gagal");
@@ -50,7 +68,9 @@ export default function LoginPage() {
 
     try {
       const provider = new GithubAuthProvider();
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken();
+      await createSession(idToken);
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message || "Login dengan GitHub gagal");

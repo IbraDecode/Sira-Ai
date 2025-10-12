@@ -32,6 +32,20 @@ export default function RegisterPage() {
     });
   };
 
+  const createSession = async (idToken: string) => {
+    const response = await fetch("/api/auth/session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ idToken }),
+    });
+    
+    if (!response.ok) {
+      throw new Error("Failed to create session. Please check Firebase configuration.");
+    }
+    
+    return response.json();
+  };
+
   const handleEmailRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -40,6 +54,8 @@ export default function RegisterPage() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       await createUserProfile(userCredential.user.uid, email, displayName);
+      const idToken = await userCredential.user.getIdToken();
+      await createSession(idToken);
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message || "Registrasi gagal");
@@ -56,6 +72,8 @@ export default function RegisterPage() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       await createUserProfile(result.user.uid, result.user.email, result.user.displayName);
+      const idToken = await result.user.getIdToken();
+      await createSession(idToken);
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message || "Registrasi dengan Google gagal");
@@ -72,6 +90,8 @@ export default function RegisterPage() {
       const provider = new GithubAuthProvider();
       const result = await signInWithPopup(auth, provider);
       await createUserProfile(result.user.uid, result.user.email, result.user.displayName);
+      const idToken = await result.user.getIdToken();
+      await createSession(idToken);
       router.push("/dashboard");
     } catch (err: any) {
       setError(err.message || "Registrasi dengan GitHub gagal");

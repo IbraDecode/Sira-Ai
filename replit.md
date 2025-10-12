@@ -107,13 +107,23 @@ npm run dev
 ```
 
 ## Recent Changes
-- **2025-10-12**: Initial project setup
-  - Created Next.js project structure
-  - Setup dual Firebase configuration
-  - Implemented authentication pages
-  - Created chat interface with Gemini integration
-  - Added workspace management system
-  - Setup markdown rendering with syntax highlighting
+- **2025-10-12 (Security Hardening)**: Critical security fixes
+  - Implemented Firebase ID token verification for all API routes
+  - Added session cookie management with Firebase Admin SDK
+  - Removed public Gemini API key exposure (server-side only now)
+  - Added workspace ownership verification before AI operations
+  - Restricted file parsing to Firebase Storage URLs only (SSRF protection)
+  - Implemented Bearer token authentication for API calls
+  
+- **2025-10-12 (Initial Setup)**: MVP implementation
+  - Created Next.js 15 project structure with TypeScript
+  - Setup dual Firebase configuration (Project A & B)
+  - Implemented authentication pages with Email, Google, GitHub OAuth
+  - Created chat interface with Gemini 2.0 & 2.5 integration
+  - Added multi-workspace management system
+  - Implemented file upload, markdown rendering with syntax highlighting
+  - Added model switching and personality profiles
+  - Created plugin system framework
 
 ## Next Phase Features
 - Advanced memory system
