@@ -170,10 +170,11 @@ Buka [http://localhost:5000](http://localhost:5000)
 ✅ **Bearer Token Auth** - Semua API calls menggunakan Authorization header  
 
 ### Required Security Setup
-- Configure Firebase Security Rules di Firebase Console (lihat contoh di bawah)
-- Set ENCRYPTION_KEY di environment variables (min 32 characters random string)
-- Keep Firebase Admin private key secure (never commit to git)
-- Use HTTPS untuk production deployment
+1. **Configure Firebase Security Rules** - Copy dari `SECURITY_RULES.md` ke Firebase Console
+2. **Set Environment Variables** - Generate `ENCRYPTION_KEY` dengan: `openssl rand -base64 32`
+3. **Secure Firebase Admin Key** - Never commit private keys to git repository
+4. **Enable HTTPS** - Production harus menggunakan HTTPS only
+5. **Review Security Checklist** - Check semua items di `SECURITY_RULES.md`
 
 ## 🚢 Deployment
 

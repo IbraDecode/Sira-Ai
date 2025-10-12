@@ -136,11 +136,20 @@ npm run dev
 - Advanced security features
 
 ## Architecture Notes
-- Dual Firebase setup: Project A handles auth/data, Project B handles file storage
-- API keys dapat disimpan encrypted per-user atau menggunakan global key
-- Workspace-based chat organization
-- Real-time sync menggunakan Firestore listeners
-- Modular plugin system untuk extensibility
+- **Dual Firebase Setup**: Project A (Auth + Firestore), Project B (Storage)
+- **Security**: Firebase ID token verification + session cookies + workspace ownership checks
+- **API Keys**: Server-side only Gemini key, user custom keys encrypted with AES-256-GCM
+- **Workspace-based**: Multi-workspace chat dengan real-time Firestore sync
+- **SSRF Protection**: File parsing restricted to Firebase Storage URLs only
+- **Modular Plugin System**: Extensible architecture untuk custom plugins
+
+## Security Implementation
+- All API routes protected with `verifyAuth()` middleware
+- Session cookies are httpOnly, secure in production, 14-day expiry
+- Refresh tokens revoked on logout to prevent stolen cookie reuse
+- Workspace ownership verified before AI operations
+- Client-side Bearer token authentication for all API calls
+- See `SECURITY_RULES.md` for complete security configuration
 
 ## User Preferences
 - Language: Indonesian (Bahasa Indonesia)
