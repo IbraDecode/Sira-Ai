@@ -4,7 +4,7 @@ import mammoth from "mammoth";
 export async function parseFile(fileBuffer: Buffer, fileType: string): Promise<string> {
   try {
     if (fileType === "application/pdf") {
-      const data = await pdf(fileBuffer);
+      const data = await pdf.default(fileBuffer);
       return data.text;
     }
 
