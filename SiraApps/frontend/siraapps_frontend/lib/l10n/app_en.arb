@@ -1,0 +1,10 @@
+{
+  "chat": "Chat",
+  "groups": "Groups",
+  "status": "Status",
+  "settings": "Settings",
+  "login": "Login",
+  "register": "Register",
+  "send": "Send",
+  "typeMessage": "Type a message"
+}

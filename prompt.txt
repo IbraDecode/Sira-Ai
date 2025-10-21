@@ -1,0 +1,213 @@
+Buat aplikasi chat mobile bernama "SiraApps" dengan fitur WhatsApp + Telegram, total >500 fitur, super rinci, siap dikembangkan. Emoji harus tampil **iOS style lengkap** (semua kategori: Smileys, People, Animals, Nature, Food, Drink, Activities, Travel, Places, Objects, Symbols, Flags). Frontend menggunakan **Flutter**, backend terpisah (Node.js / Express / Socket.IO / DB). Semua file & dokumentasi beri label **"Di Buat Oleh Ibra Decode"**.
+
+### **1. Autentikasi & Akun**
+- Register/login (email, HP, username)
+- OTP verification, 2FA
+- Reset password, account recovery
+- Edit profil (nama, username, foto, bio, status)
+- Profile QR code, username change, badges
+- Privacy settings (siapa lihat profil, last seen, foto)
+- Multi-device login, session management, logout remote
+- Account deletion, trusted contacts
+- Linked accounts (Google, Apple)
+- Login alerts, device management
+- Profile theme & status emoji customization
+- Online/offline indicator, last active timestamp
+- Temporary account lock, verification badge
+- Display name history
+- Profile verification status / verified badge
+
+### **2. Kontak & Teman**
+- Import phonebook, add/remove friend
+- Block/unblock, search friend via username/number/QR
+- Friend requests (pending/accepted/declined)
+- Mutual friends suggestion
+- Contact labels/groups, favorites/pinned contacts
+- Contact status, last seen, custom nicknames
+- Contact privacy, backup & restore
+- Chat shortcut, quick call button, chat pin
+- Multi-device sync, chat archive
+- Contact starred messages, shared media count
+- Import/export contacts, media gallery
+- Notification control per contact
+- Contact activity feed (recent shared media / status)
+
+### **3. Chat 1-on-1 & Grup**
+- Text, emoji iOS lengkap, sticker, GIF, reactions
+- Forward, reply, edit, delete messages
+- Pin, archive, mute chat
+- Typing indicator, online/offline status
+- Read & delivered receipts, timestamps
+- Multi-device sync
+- Quote, draft messages, chat folders
+- Threaded messages, private reply in group
+- Export/import chat, mentions, hashtags
+- Polls, quizzes, scheduled messages
+- Group admin controls, join/leave links, moderation
+- Group permissions, description, photo
+- Pinned messages, reactions summary
+- Group call integration, broadcast
+- Chat backup & restore
+- Chat scroll memory, smart reply, swipe gestures
+- Temporary messages, secret chats
+- Inline media & emoji preview
+- Chat unread count, multi-language input
+- Chat shortcuts & quick forward
+- Message search & filter by media/type/date
+- Reply reactions: animated & quick tap
+- Draft indicators for unsent messages
+- Forward to multiple chats at once
+- Message threading indicator
+
+### **4. Media & File Sharing**
+- Photos, videos, audio, voice notes, documents
+- Media preview & thumbnails
+- Compression, download management
+- Cloud storage (S3/Firebase)
+- Forward, delete, pin media
+- Temporary/secret media, media folders
+- Tagging, animated stickers, GIF packs
+- Video voice notes, captions, multi-file send
+- File versioning, media search
+- Backup & restore, download count
+- Media edit (crop, rotate, filters)
+- Media sharing via link
+- Emoji overlay, reactions, cloud sync
+- Cross-device media sync, inline preview
+- Lottie animated stickers, sticker packs import/export
+- Premium sticker packs support
+- Media favorites / starred media
+- Auto-download media toggle per chat
+- Preview for PDF, audio, video thumbnails
+
+### **5. Voice & Video Call**
+- 1-on-1 & group voice/video calls
+- Mute/unmute, camera on/off
+- Call recording (opsional)
+- Call history, caller ID, notifications
+- Grid view, low bandwidth mode
+- Join via link, end-to-end encryption
+- PiP view, call duration stats
+- Video quality settings
+- Speaker/earpiece toggle
+- Hold/resume, transfer
+- Ringtone customization, animated call icons
+- Call participants management
+- Call notes / pin important call moments
+- Missed call tracking & callback shortcut
+- Call reactions / emoji feedback
+- Video filters / background blur for calls
+
+### **6. Channels / Broadcast**
+- Public/private channels
+- Description, photo, pinned messages
+- Broadcast messages, subscriber management
+- Moderation, scheduled broadcasts, analytics
+- Polls, quizzes, reminders in channels
+- Channel media gallery, reactions
+- Custom channel emoji, highlights
+- Channel analytics: viewers, engagement
+- Channel invites via link, QR
+- Channel notifications per user
+- Channel post scheduling
+- Highlights carousel
+- Searchable channel content
+
+### **7. Emoji iOS Style**
+- Complete iOS emoji set (Smileys, People, Animals, Nature, Food, Drink, Activities, Travel, Places, Objects, Symbols, Flags)
+- Emoji picker like Telegram
+- Static & animated emoji
+- Emoji assets in CDN/backend
+- Emoji shortcodes & text parsing
+- Sticker packs integration, custom user packs
+- Animated emoji reactions
+- Emoji search, categories/tabs, recent emoji
+- Preview before sending, inline emoji in chat
+- Multi-device emoji sync
+- Emoji skin tone & variant support
+- Lottie animated emoji support
+- Emoji reactions in group messages / broadcast
+- Inline emoji in status / profile
+
+### **8. Notifikasi & Status**
+- Push notifications (FCM)
+- Custom sound/vibration, badge count
+- In-app notifications, typing indicators
+- Online/offline status, last seen
+- Status updates/stories (photo/video/text)
+- Auto-delete 24h, reactions, highlights
+- Mentions/reply notifications
+- Silent mode toggle, schedule, custom tone
+- Group mentions, quick reply from notification
+- Emoji reactions in notifications
+- Status view count & privacy, search
+- Status highlights carousel
+- Story drafts
+- Reaction summary per status
+
+### **9. Keamanan & Privacy**
+- End-to-end encryption (chat, media, call)
+- Encrypted backup & restore
+- Secure key management
+- Multi-device encryption
+- Spam / abuse detection
+- Session management & remote logout
+- Trusted contacts, secret chats, temporary messages
+- Chat lock/app lock
+- Privacy granular (last seen, status, profile photo)
+- OTP verification, 2FA
+- Device/login alerts
+- Encryption for group chats
+- Data masking in logs
+- GDPR/local compliance
+- Screen security (prevent screenshot / screen record optional)
+- Auto logout on inactivity
+- Login history tracking
+
+### **10. UI / UX Premium**
+- Rounded chat bubbles, buttons, cards, tab icons  
+- Soft shadow & subtle gradient accents  
+- Layout responsive & adaptive untuk portrait & landscape  
+- Assets gambar strategis: header, chat, media, status, profil, icons  
+- FAB: context-aware, animated appear/disappear  
+- Chat input: rounded, shadow, emoji/media buttons integrated  
+- Emoji/sticker panel: rounded, draggable, scrollable, animated  
+- Profile/settings: card style, toggle animated, parallax effect  
+- Status/story: circular progress ring, swipe gesture, reaction animation  
+- Micro-interactions: message send animation, typing indicator bouncing dots, reaction pop-up  
+- Shimmer loading placeholders untuk chat & media  
+- Theme: Light/Dark mode + accent color customization  
+- Typography: modern, readable, spacing & line-height optimal  
+- Smooth animations: slide, fade, pop, scale, ripple, swipe  
+- Swipe gestures untuk archive / reply / delete / forward
+- Contextual long-press menus
+- Scroll memory & lazy loading untuk performa tinggi
+- Adaptive padding & margin untuk berbagai ukuran layar
+- Inline media preview & player
+
+### **11. Frontend & Backend Setup**
+- Flutter frontend, modular & scalable  
+- Node.js + Express + Socket.IO backend  
+- Database: MongoDB/PostgreSQL  
+- Media storage: CDN/S3/Firebase  
+- Real-time chat via Socket.IO  
+- Push notifications via FCM  
+- API endpoints: chat, media, emoji, users, channels  
+- Chat & call flow siap diintegrasikan  
+- Best practices: modular, reusable, scalable  
+- Full documentation & code comments: "Di Buat Oleh Ibra Decode"
+
+### **12. Fitur Tambahan**
+- Dark/Light theme + custom accent color  
+- Chat wallpaper per chat  
+- Message reactions & summaries  
+- Forward / share to multiple chats simultaneously  
+- Search messages / media / links  
+- Starred / bookmarked messages & media  
+- Draft messages & unsent message indicators  
+- Auto-download media toggle per chat  
+- Media editing (crop, rotate, filter)  
+- Voice note playback speed control  
+- Group analytics: active members, top sender  
+- Media compression & caching  
+- Multi-language support & localization

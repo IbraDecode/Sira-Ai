@@ -1,0 +1,47 @@
+name: siraapps_frontend
+description: Frontend Flutter untuk SiraApps
+
+# Di Buat Oleh Ibra Decode
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  firebase_core: ^2.15.0
+  firebase_auth: ^4.6.3
+  provider: ^6.0.5  # State management
+  socket_io_client: ^2.0.3  # Real-time chat
+  firebase_messaging: ^14.6.5  # Push notifications
+  cached_network_image: ^3.2.3  # Media caching
+  emoji_picker_flutter: ^2.0.0  # Emoji picker
+  lottie: ^2.3.2  # Animated stickers/emoji
+  image_picker: ^1.0.0  # Media picker
+  encrypt: ^5.0.1  # E2E encryption
+  shared_preferences: ^2.2.0  # Local storage
+  intl: ^0.18.1  # Localization
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/emoji/
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/icon.png"

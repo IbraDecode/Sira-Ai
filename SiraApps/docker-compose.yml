@@ -1,0 +1,28 @@
+# Di Buat Oleh Ibra Decode
+
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/siraapps
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend/siraapps_frontend
+    ports:
+      - "8080:8080"
+
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

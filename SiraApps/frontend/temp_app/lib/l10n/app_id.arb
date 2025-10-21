@@ -1,0 +1,10 @@
+{
+  "chat": "Obrolan",
+  "groups": "Grup",
+  "status": "Status",
+  "settings": "Pengaturan",
+  "login": "Masuk",
+  "register": "Daftar",
+  "send": "Kirim",
+  "typeMessage": "Ketik pesan"
+}
